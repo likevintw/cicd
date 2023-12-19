@@ -11,3 +11,11 @@ jobs:
         SERVICE_NAME: JAVA
       run: |
         echo Hello $SERVICE_NAME
+    
+  after_echo:
+    name: After Echo
+    runs-on: ubuntu-latest
+    steps:
+    - name: Echo After Echo
+      run: |
+        echo After Hello
