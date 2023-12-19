@@ -8,15 +8,22 @@ on:
     branches:[main]
 
 jobs:
-  build:
-    env:
-      MAIL_USERNAME: ${{ secrets.MAIL_USERNAME }}
-      MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
-
+  echo:
+    name: echo
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - name: echo hello
+        env:
+          MAIL_USERNAME: ${{ secrets.MAIL_USERNAME }}
+          MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
+        run: |
+          echo Hello
 
-    - name: Echo Hello
-      run: |
-        echo Hello World
+  after_echo:
+    name: after echo
+    needs: [echo]
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo worl
+        run: |
+          echo World
