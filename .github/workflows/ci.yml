@@ -4,7 +4,7 @@ on: push
 jobs:
   echo:
     name: Echo
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted,MacOS]
     steps:
     - name: Echo Hello
       env:
@@ -15,7 +15,7 @@ jobs:
   after_echo:
     needs: [echo]
     name: After Echo
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted,MacOS]
     steps:
     - name: Echo After Echo
       run: |
