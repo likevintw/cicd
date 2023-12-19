@@ -9,34 +9,10 @@ on:
 
 jobs:
   build_docker:
-    # runs-on: ubuntu-latest
     env:
       MAIL_USERNAME: ${{ secrets.MAIL_USERNAME }}
       MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
-      MAIL_ENCRYPTION: tls
-    # strategy:
-    #   max-parallel:4
-    #   matrix:
-    #   python-version:[3.7]
-
-    # services:
-    #   mysql:
-    #     image: mysql:latest
-    #     # 設定 container 中的環境變數
-    #     env:
-    #       MYSQL_ROOT_PASSWORD: password
-    #       MYSQL_DATABASE: blog_tests
-    #     ports:
-    #       - 3306/tcp
-    #     # 測試 MySQL 執行是否正常
-    #     options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
-
-    #   redis:
-    #     image: redis
-    #     ports:
-    #       - 6379/tcp
-    #     options: --health-cmd="redis-cli ping" --health-interval=10s --health-timeout=5s --health-retries=3
-
+      
     steps:
       - name: Checkout
         uses: actions/checkout@v3
