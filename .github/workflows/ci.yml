@@ -13,6 +13,7 @@ jobs:
         echo Hello $SERVICE_NAME
     
   after_echo:
+    needs: [echo]
     name: After Echo
     runs-on: ubuntu-latest
     steps:
