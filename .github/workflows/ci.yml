@@ -1,29 +1,13 @@
 name: CI
-
-on:
-  push:
-    branches:
-      - main
-  pulll_request:
-    branches:[main]
+on: push
 
 jobs:
   echo:
-    name: echo
+    name: Echo
     runs-on: ubuntu-latest
     steps:
-      - name: echo hello
-        env:
-          MAIL_USERNAME: ${{ secrets.MAIL_USERNAME }}
-          MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
-        run: |
-          echo Hello
-
-  after_echo:
-    name: after echo
-    needs: [echo]
-    runs-on: ubuntu-latest
-    steps:
-      - name: echo worl
-        run: |
-          echo World
+    - name: Echo Hello
+      env:
+        SERVICE_NAME: JAVA
+      run: |
+        echo Hello $SERVICE_NAME
