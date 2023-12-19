@@ -8,11 +8,11 @@ on:
     branches:[main]
 
 jobs:
-  build_docker:
+  build:
     env:
       MAIL_USERNAME: ${{ secrets.MAIL_USERNAME }}
       MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
-      
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
